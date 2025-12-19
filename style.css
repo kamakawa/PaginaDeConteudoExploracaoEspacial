@@ -1,0 +1,167 @@
+/* ========================================================= */
+/* 1. IMPORTAÇÕES E CONFIGURAÇÃO DE CAMADAS (LAYERS)         */
+/* ========================================================= */
+@import "https://unpkg.com/open-props" layer(design.system);
+
+@layer demo {
+    fieldset {
+        /* Configuração do Grid Dinâmico que você enviou */
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-rows: 50vh;
+        inline-size: 80vw;
+        gap: var(--size-3);
+        border: none;
+        margin: 0 auto;
+
+        grid-template-columns:
+            var(--col-1, 1fr)
+            var(--col-2, 1fr)
+            var(--col-3, 1fr)
+            var(--col-4, 1fr)
+            var(--col-5, 1fr);
+
+        @media (prefers-reduced-motion: no-preference) {
+            transition: grid-template-columns 2s var(--ease-spring-5);
+        }
+
+        /* Lógica de expansão das colunas baseada no rádio checked */
+        &:has(label:nth-child(1) > input:checked) { --col-1: 5fr; --col-2: 3fr; }
+        &:has(label:nth-child(2) > input:checked) { --col-1: 2fr; --col-2: 5fr; --col-3: 2fr; }
+        &:has(label:nth-child(3) > input:checked) { --col-2: 2fr; --col-3: 5fr; --col-4: 2fr; }
+        &:has(label:nth-child(4) > input:checked) { --col-3: 2fr; --col-4: 5fr; --col-5: 2fr; }
+        &:has(label:nth-child(5) > input:checked) { --col-4: 3fr; --col-5: 5fr; }
+
+        > label {
+            background-image: var(--_img);
+            background-position: center;
+            background-size: cover; /* Ajustado para preencher melhor o card */
+            cursor: pointer;
+            border-radius: var(--radius-4);
+            transition: filter 0.3s ease;
+            filter: grayscale(0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+
+            &:focus-within {
+                outline: 1px solid #00F5FF;
+                outline-offset: 5px;
+            }
+
+            &:has(input:checked) {
+                filter: grayscale(0);
+                border-color: #00F5FF;
+                box-shadow: 0 0 20px rgba(0, 245, 255, 0.2);
+            }
+
+            > input {
+                opacity: 0;
+                position: absolute;
+            }
+        }
+    }
+}
+
+/* ========================================================= */
+/* 2. ESTILIZAÇÃO GERAL E SEÇÕES (VISUAL SPACE DARK)         */
+/* ========================================================= */
+body {
+    background-color: #05070A;
+    background-image: radial-gradient(circle at center, #0B101A 0%, #05070A 100%);
+    color: #E0E6ED;
+    line-height: 1.8;
+    min-block-size: 100%;
+    padding: var(--size-5);
+}
+
+/* Títulos com efeito Neon */
+h1 {
+    color: #00F5FF;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 60px 0 30px;
+    text-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
+    font-size: var(--font-size-6);
+}
+
+h2 {
+    color: #7B61FF;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+/* Container Glassmorphism para os textos */
+#home, #missoes, #blog, #dados, #galeria {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-4);
+    box-shadow: var(--shadow-5);
+}
+
+/* Estilização da Tabela de Dados */
+.tabela-container {
+    overflow-x: auto;
+    margin-top: 25px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: var(--radius-3);
+}
+
+th {
+    background: rgba(123, 97, 255, 0.15);
+    color: #00F5FF;
+    padding: 15px;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 0.85em;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: #B0C4DE;
+}
+
+tr:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* Lista de Missões Estilizada */
+#missoes ul {
+    list-style: none;
+}
+
+#missoes li {
+    background: rgba(123, 97, 255, 0.05);
+    margin-bottom: 12px;
+    padding: 20px;
+    border-left: 4px solid #7B61FF;
+    border-radius: 0 var(--radius-3) var(--radius-3) 0;
+    transition: 0.3s;
+}
+
+#missoes li:hover {
+    background: rgba(123, 97, 255, 0.12);
+    transform: translateX(10px);
+}
+
+/* Responsividade Mobile */
+@media (max-width: 768px) {
+    fieldset {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: repeat(5, 150px);
+        inline-size: 90vw;
+    }
+    
+    #home, #missoes, #blog, #dados {
+        padding: 20px;
+    }
+}
