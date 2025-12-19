@@ -7,6 +7,14 @@
     </head>
 
     <body>
+        padding-top: 80px;
+        <div id = "menu-horizontal">
+            <a href="#home">home</a>
+            <a href = "#galeria">galeria</a>
+            <a href = "#missoes">missões</a>
+            <a href = "#dados">dados</a>
+            <a href = "#blog">blog</a>
+        </div>
         <div id = "home">
             <h1>Fronteiras do Infinito: Uma Jornada pela Astrofotografia</h1>
             <h2>O Convite ao Desconhecido</h2>
@@ -45,21 +53,46 @@
         </div>
 
         <div id="galeria">
-        <h1>Galeria de Nebulosas e Galáxias</h1>
-        <fieldset>
-            <label style="--_img: url('https://apod.nasa.gov/apod/image/1910/M42Detailed_DrudisGoldman_8150.jpg')">
-            <input type="radio" name="galeria" checked>
-            </label>
-            <label style="--_img: url('https://apod.nasa.gov/apod/image/2303/M31_Alharbi_960.jpg')">
-            <input type="radio" name="galeria">
-            </label>
-            <label style="--_img: url('https://tse1.mm.bing.net/th/id/OIP.IfRpFlO38-5YAacwcD3GeQHaEK?rs=1&pid=ImgDetMain&o=7&rm=3')">
-            <input type="radio" name="galeria">
-            </label>
-            <label style="--_img: url('https://i0.wp.com/astropt.org/blog/wp-content/uploads/2014/08/m57_nasagendler_3000.jpg')">
-            <input type="radio" name="galeria">
-            </label>
-        </fieldset>
+            <h1>Galeria de Nebulosas e Galáxias</h1>
+            <ul>
+                <li>Nebulosa de Órion (M42): Um berçário estelar localizado a 1.344 anos-luz de distância. É a região de formação estelar massiva mais próxima da Terra.</li>
+                <li>Galáxia de Andrômeda (M31): Nossa vizinha galáctica mais próxima, contendo aproximadamente um trilhão de estrelas e situada a 2,5 milhões de anos-luz.</li>
+                <li>Pilares da Criação: Localizados na Nebulosa da Águia, são colunas de gás interestelar e poeira que servem como incubadoras para novas estrelas.</li>
+                <li>Nebulosa do Anel (M57): Uma nebulosa planetária na constelação de Lira, formada por uma estrela que expeliu suas camadas externas ao final de sua vida.</li>
+            </ul>
+            <fieldset>
+                <label style="--_img: url('https://apod.nasa.gov/apod/image/1910/M42Detailed_DrudisGoldman_8150.jpg')">
+                    <input type="radio" name="galeria" checked>
+                    <div class="legenda">
+                        <h3>Nebulosa de Órion</h3>
+                        <p>Um berçário estelar a 1.344 anos-luz de distância.</p>
+                    </div>
+                </label>
+
+                <label style="--_img: url('https://apod.nasa.gov/apod/image/2303/M31_Alharbi_960.jpg')">
+                    <input type="radio" name="galeria">
+                    <div class="legenda">
+                        <h3>Galáxia de Andrômeda</h3>
+                        <p>Nossa vizinha galáctica a 2,5 milhões de anos-luz.</p>
+                    </div>
+                </label>
+
+                <label style="--_img: url('https://tse1.mm.bing.net/th/id/OIP.IfRpFlO38-5YAacwcD3GeQHaEK?rs=1&pid=ImgDetMain&o=7&rm=3')">
+                    <input type="radio" name="galeria">
+                    <div class="legenda">
+                        <h3>Pilares da Criação</h3>
+                        <p>Incubadoras estelares na Nebulosa da Águia.</p>
+                    </div>
+                </label>
+
+                <label style="--_img: url('https://i0.wp.com/astropt.org/blog/wp-content/uploads/2014/08/m57_nasagendler_3000.jpg')">
+                    <input type="radio" name="galeria">
+                    <div class="legenda">
+                        <h3>Nebulosa do Anel</h3>
+                        <p>Restos de uma estrela que expeliu suas camadas externas.</p>
+                    </div>
+                </label>
+            </fieldset>
         </div>
 
         <div id = "missoes">
@@ -69,26 +102,133 @@
                 <li>1977 - Voyager 1 e 2: As sondas que realizaram o "Grand Tour" pelos planetas externos e agora são os objetos feitos pelo homem mais distantes da Terra.</li>
                 <li>1990 - Telescópio Espacial Hubble: Revolucionou a astronomia ao fornecer imagens nítidas do universo profundo sem a interferência da atmosfera terrestre.</li>
                 <li>2021 - Telescópio James Webb (JWST): Projetado para observar a luz infravermelha das primeiras galáxias formadas após o Big Bang.</li>
-
             </ul>
+
+            <fieldset>
+            <label style="--_img: url('https://costabrancanews.com/wp-content/uploads/2019/07/lua-AAEzP1k.jpg')">
+                <input type="radio" name="missoes" checked>
+                <div class="legenda">
+                    <h3>Apollo 11</h3>
+                    <p>1969: O primeiro passo da humanidade na Lua.</p>
+                </div>
+            </label>
+
+            <label style="--_img: url('https://d2pn8kiwq2w21t.cloudfront.net/images/uJpJ79AxrzI-HD.2e16d0ba.fill-490x430-c70.format-jpeg.jpg')">
+                <input type="radio" name="missoes">
+                <div class="legenda">
+                    <h3>Voyager 1 & 2</h3>
+                    <p>1977: Explorando os confins do Sistema Solar.</p>
+                </div>
+            </label>
+
+            <label style="--_img: url('https://th.bing.com/th/id/R.45190e176eba2dbf312dfacecb142e3d?rik=0UOKORkfGay23g&riu=http%3a%2f%2fventanaver.mx%2fwp-content%2fuploads%2f2025%2f04%2ftelescopio-espacial-hubble-que-es-y-como-funciona-este-observatorio-1000x562-1.jpeg&ehk=cnOFhexTded%2f1VBKtvEhFCaJDgs2Pv1l55NVxVplIVQ%3d&risl=&pid=ImgRaw&r=0')">
+                <input type="radio" name="missoes">
+                <div class="legenda">
+                    <h3>Hubble</h3>
+                    <p>1990: Capturando a luz das galáxias primordiais.</p>
+                </div>
+            </label>
+
+            <label style="--_img: url('https://cdn.mos.cms.futurecdn.net/uSYTomxPjhvp9Ab7zssjzh-1200-80.jpg')">
+                <input type="radio" name="missoes">
+                <div class="legenda">
+                    <h3>James Webb (JWST)</h3>
+                    <p>2021: O sucessor infravermelho desvendando o início do tempo.</p>
+                </div>
+            </label>
+        </fieldset>
+        </div>
+
+        <div id="dados">
+            <h1>Análise de Dados Cósmicos</h1>
+            <p>Comparativo técnico de corpos celestes e escalas de magnitude no universo observável.</p>
+            
+            <div class="tabela-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Objeto Celeste</th>
+                            <th>Tipo</th>
+                            <th>Distância da Terra</th>
+                            <th>Tamanho (Diâmetro)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Lua</strong></td>
+                            <td>Satélite Natural</td>
+                            <td>384.400 km</td>
+                            <td>3.474 km</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Marte</strong></td>
+                            <td>Planeta Rochoso</td>
+                            <td>225 milhões km</td>
+                            <td>6.779 km</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Júpiter</strong></td>
+                            <td>Gigante Gasoso</td>
+                            <td>778 milhões km</td>
+                            <td>139.820 km</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Próxima Centauri</strong></td>
+                            <td>Estrela (Anã Vermelha)</td>
+                            <td>4,24 Anos-Luz</td>
+                            <td>167.000 km</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sagittarius A*</strong></td>
+                            <td>Buraco Negro Supermassivo</td>
+                            <td>26.673 Anos-Luz</td>
+                            <td>44 milhões km (Raio)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <div id = "blog">
             <h1>Blog de Notícias Espaciais</h1>
-            <h2>Água em Marte: Novas evidências sugerem reservatórios subterrâneos</h2>
-            <p>
-                Dados coletados por sondas orbitais indicam que o planeta vermelho ainda possui atividade hídrica em camadas profundas da crosta.
-            </p>
+            <ul>
+                <li><a href = "#marte">Água em Marte</a></li>
+                <li><a href = "#rochoso">Possível atmosfera em mundo rochoso</a></li>
+                <li><a href = "#danca">A Dança das Galáxias</a></li>
+            </ul>
 
-            <h2>James Webb detecta atmosfera em exoplaneta rochoso</h2>
-            <p>
-                Pela primeira vez, cientistas identificaram componentes químicos em uma super-Terra localizada na zona habitável de sua estrela.
-            </p>
+            <div id = "marte">
+                <h2>Água em Marte: Novas evidências sugerem reservatórios subterrâneos</h2>
+                <img  src = "https://th.bing.com/th/id/R.37bae1f2d9eac7838b96e0166e757412?rik=N1%2b6BJvX4n%2b4lw&riu=http%3a%2f%2fmidia.gruposinos.com.br%2f_midias%2fjpg%2f2015%2f04%2f13%2fmarte-704389.jpg&ehk=EbJvKF730URAwMxaQlxU23Oc3gRVlKH0pb7gs%2fZpVAs%3d&risl=&pid=ImgRaw&r=0">
+                <p>
+                    Dados coletados por sondas orbitais indicam que o planeta vermelho ainda possui atividade hídrica em camadas profundas da crosta.
+                </p>
+                <p>
+                    Confira em: <a href = "https://g1.globo.com/ciencia/noticia/2024/08/12/marte-oceano-escondido-agua-estado-liquido.ghtml" target = "_blank">Água em Marte</a>
+                </p>
+            </div>
 
-            <h2>A Dança das Galáxias: Andrômeda e Via Láctea em rota de colisão</h2>
-            <p>
-                Cálculos de trajetórias confirmam que nossas galáxias se fundirão em 4 bilhões de anos, criando uma nova galáxia elíptica.
-            </p>
+            <div id = "rochoso">
+                <h2>James Webb detecta atmosfera em exoplaneta rochoso</h2>
+                <img src = "https://newr7-r7-prod.web.arc-cdn.net/resizer/v2/OZCWONDU6FBJVEJM2CITQVZZ4A.jpeg?auth=bf2a1e6918dfac78e8d4f93f6cadd5cd0ae864b078819917d0a3a591b94b0646&width=1600&height=900">
+                <p>
+                    Pela primeira vez, cientistas identificaram componentes químicos em uma super-Terra localizada na zona habitável de sua estrela.
+                </p>
+                <p>
+                    Confira em: <a href = "https://noticias.r7.com/fala-ciencia/james-webb-detecta-possivel-atmosfera-em-mundo-rochoso-quente-a-280-anos-luz-14122025/" target = "_blank">Atmosfera em mundo rochoso quente a 280 anos-luz</a>
+                </p>
+            </div>
+
+            <div id = "danca">
+                <h2>A Dança das Galáxias: Andrômeda e Via Láctea em rota de colisão</h2>
+                <img src = "https://s2-g1.glbimg.com/_QTENA-kHg2PVA3eWYXR0Yu1KVA=/0x0:1050x483/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2025/8/U/Gbb0RFSzAR6GmjK1wnpw/low-res-sci-delegate-galaxies-1080.jpg">
+                <p>
+                    Cálculos de trajetórias confirmam que nossas galáxias se fundirão em 4 bilhões de anos, criando uma nova galáxia elíptica.
+                </p>
+                <p>
+                    Confira em: <a href = "https://g1.globo.com/ciencia/noticia/2025/08/14/danca-cosmica-cientistas-preveem-como-sera-a-colisao-da-via-lactea-com-andromeda.ghtml" target="_blank">Dança cósmica</a>
+                </p>
+            </div>
         </div>
     </body>
 </html>

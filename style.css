@@ -1,3 +1,60 @@
+#menu-horizontal {
+    /* FIXAÇÃO NO TOPO */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999; /* Garante que fique acima de tudo */
+    
+    /* VISUAL GLASSMORPHISM */
+    background: rgba(5, 7, 10, 0.7); /* Fundo escuro semi-transparente */
+    backdrop-filter: blur(15px); /* Desfoque do conteúdo atrás */
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(0, 245, 255, 0.2); /* Linha ciano sutil */
+    
+    /* ALINHAMENTO */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--size-3) 0;
+    gap: var(--size-6);
+}
+
+#menu-horizontal a {
+    color: #E0E6ED;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    transition: all 0.3s var(--ease-spring-3);
+    position: relative;
+    padding: 5px 10px;
+}
+
+/* EFEITO DE HOVER (LINHA QUE CRESCE) */
+#menu-horizontal a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #00F5FF;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    box-shadow: 0 0 8px #00F5FF;
+}
+
+#menu-horizontal a:hover {
+    color: #00F5FF;
+    text-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
+}
+
+#menu-horizontal a:hover::after {
+    width: 80%;
+}
+
 /* ========================================================= */
 /* 1. IMPORTAÇÕES E CONFIGURAÇÃO DE CAMADAS (LAYERS)         */
 /* ========================================================= */
@@ -139,6 +196,10 @@ tr:hover {
     list-style: none;
 }
 
+#galeria ul {
+    list-style: none;
+}
+
 #missoes li {
     background: rgba(123, 97, 255, 0.05);
     margin-bottom: 12px;
@@ -148,7 +209,21 @@ tr:hover {
     transition: 0.3s;
 }
 
+#galeria li {
+    background: rgba(123, 97, 255, 0.05);
+    margin-bottom: 12px;
+    padding: 20px;
+    border-left: 4px solid #7B61FF;
+    border-radius: 0 var(--radius-3) var(--radius-3) 0;
+    transition: 0.3s;
+}
+
 #missoes li:hover {
+    background: rgba(123, 97, 255, 0.12);
+    transform: translateX(10px);
+}
+
+#galeria li:hover {
     background: rgba(123, 97, 255, 0.12);
     transform: translateX(10px);
 }
@@ -164,4 +239,144 @@ tr:hover {
     #home, #missoes, #blog, #dados {
         padding: 20px;
     }
+}
+
+/* Estilo base da legenda (escondida) */
+.legenda {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    border: 1px solid rgba(0, 245, 255, 0.3);
+    opacity: 0; /* Começa invisível */
+    transform: translateY(20px); /* Começa um pouco abaixo */
+    transition: all 0.5s ease 0.3s; /* Delay para esperar a imagem expandir */
+    pointer-events: none; /* Não interfere no clique */
+}
+
+.legenda h3 {
+    color: #00F5FF;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.legenda p {
+    color: #fff;
+    font-size: 0.8rem;
+    margin: 5px 0 0 0;
+}
+
+/* REVELAÇÃO: Quando o rádio dentro do label estiver marcado */
+label:has(input:checked) .legenda {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Garante que o conteúdo do label não vaze */
+label {
+    position: relative;
+    overflow: hidden;
+}
+
+/* ========================================================= */
+/* ESTILIZAÇÃO DO BLOG (CARDS DE NOTÍCIAS)                   */
+/* ========================================================= */
+#blog {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Espaço entre as notícias */
+}
+
+#blog h2 {
+    font-size: 1.6rem;
+    color: #00F5FF; /* Destaque Ciano */
+    border-left: 4px solid #7B61FF;
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+
+#blog img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover; /* Corta a imagem sem distorcer para caber no padrão */
+    border-radius: var(--radius-3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s ease;
+}
+
+#blog img:hover {
+    transform: scale(1.02); /* Leve zoom ao passar o mouse */
+}
+
+#blog p {
+    margin-top: 15px;
+    color: #B0C4DE;
+    font-size: 1.1rem;
+}
+
+/* Estilização dos Links de "Confira em" */
+#blog a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #7B61FF;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+#blog a:hover {
+    color: #00F5FF;
+    text-shadow: 0 0 8px rgba(0, 245, 255, 0.4);
+}
+
+/* ========================================================= */
+/* ESTILIZAÇÃO DO MINI-MENU (FILTROS DO BLOG)                */
+/* ========================================================= */
+#blog ul {
+    display: flex;
+    justify-content: center;
+    gap: var(--size-4);
+    margin-bottom: 40px;
+    padding: 0;
+    list-style: none;
+}
+
+#blog ul li {
+    margin: 0;
+}
+
+#blog ul li a {
+    display: block;
+    padding: 10px 20px;
+    background: rgba(123, 97, 255, 0.05); /* Roxo muito sutil */
+    border: 1px solid rgba(123, 97, 255, 0.2);
+    border-radius: var(--radius-pill); /* Formato de cápsula */
+    color: #E0E6ED;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s var(--ease-spring-3);
+}
+
+/* Efeito de destaque no hover */
+#blog ul li a:hover {
+    background: rgba(0, 245, 255, 0.1); /* Fundo Ciano */
+    border-color: #00F5FF;
+    color: #00F5FF;
+    box-shadow: 0 0 15px rgba(0, 245, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+/* Ajuste para o título do blog não ficar colado */
+#blog h1 {
+    margin-bottom: 20px;
 }
