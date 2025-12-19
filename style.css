@@ -1,18 +1,15 @@
 #menu-horizontal {
-    /* FIXAÇÃO NO TOPO */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 9999; /* Garante que fique acima de tudo */
+    z-index: 9999; 
     
-    /* VISUAL GLASSMORPHISM */
-    background: rgba(5, 7, 10, 0.7); /* Fundo escuro semi-transparente */
-    backdrop-filter: blur(15px); /* Desfoque do conteúdo atrás */
+    background: rgba(5, 7, 10, 0.7); 
+    backdrop-filter: blur(15px); 
     -webkit-backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(0, 245, 255, 0.2); /* Linha ciano sutil */
+    border-bottom: 1px solid rgba(0, 245, 255, 0.2);
     
-    /* ALINHAMENTO */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,7 +29,6 @@
     padding: 5px 10px;
 }
 
-/* EFEITO DE HOVER (LINHA QUE CRESCE) */
 #menu-horizontal a::after {
     content: '';
     position: absolute;
@@ -55,14 +51,10 @@
     width: 80%;
 }
 
-/* ========================================================= */
-/* 1. IMPORTAÇÕES E CONFIGURAÇÃO DE CAMADAS (LAYERS)         */
-/* ========================================================= */
 @import "https://unpkg.com/open-props" layer(design.system);
 
 @layer demo {
     fieldset {
-        /* Configuração do Grid Dinâmico que você enviou */
         display: grid;
         grid-auto-flow: column;
         grid-template-rows: 50vh;
@@ -82,7 +74,6 @@
             transition: grid-template-columns 2s var(--ease-spring-5);
         }
 
-        /* Lógica de expansão das colunas baseada no rádio checked */
         &:has(label:nth-child(1) > input:checked) { --col-1: 5fr; --col-2: 3fr; }
         &:has(label:nth-child(2) > input:checked) { --col-1: 2fr; --col-2: 5fr; --col-3: 2fr; }
         &:has(label:nth-child(3) > input:checked) { --col-2: 2fr; --col-3: 5fr; --col-4: 2fr; }
@@ -92,7 +83,7 @@
         > label {
             background-image: var(--_img);
             background-position: center;
-            background-size: cover; /* Ajustado para preencher melhor o card */
+            background-size: cover;
             cursor: pointer;
             border-radius: var(--radius-4);
             transition: filter 0.3s ease;
@@ -118,9 +109,6 @@
     }
 }
 
-/* ========================================================= */
-/* 2. ESTILIZAÇÃO GERAL E SEÇÕES (VISUAL SPACE DARK)         */
-/* ========================================================= */
 body {
     background-color: #05070A;
     background-image: radial-gradient(circle at center, #0B101A 0%, #05070A 100%);
@@ -130,7 +118,6 @@ body {
     padding: var(--size-5);
 }
 
-/* Títulos com efeito Neon */
 h1 {
     color: #00F5FF;
     text-align: center;
@@ -142,12 +129,14 @@ h1 {
 }
 
 h2 {
-    color: #7B61FF;
+    color: #FFFFFF; 
     margin-top: 30px;
     margin-bottom: 15px;
+    border-left: 3px solid #00F5FF; 
+    padding-left: 12px;
+    font-size: 1.5rem;
 }
 
-/* Container Glassmorphism para os textos */
 #home, #missoes, #blog, #dados, #galeria {
     max-width: 1100px;
     margin: 40px auto;
@@ -159,7 +148,6 @@ h2 {
     box-shadow: var(--shadow-5);
 }
 
-/* Estilização da Tabela de Dados */
 .tabela-container {
     overflow-x: auto;
     margin-top: 25px;
@@ -191,7 +179,6 @@ tr:hover {
     background: rgba(255, 255, 255, 0.03);
 }
 
-/* Lista de Missões Estilizada */
 #missoes ul {
     list-style: none;
 }
@@ -228,7 +215,6 @@ tr:hover {
     transform: translateX(10px);
 }
 
-/* Responsividade Mobile */
 @media (max-width: 768px) {
     fieldset {
         grid-template-columns: 1fr !important;
@@ -241,7 +227,6 @@ tr:hover {
     }
 }
 
-/* Estilo base da legenda (escondida) */
 .legenda {
     position: absolute;
     bottom: 20px;
@@ -252,10 +237,10 @@ tr:hover {
     backdrop-filter: blur(5px);
     border-radius: 10px;
     border: 1px solid rgba(0, 245, 255, 0.3);
-    opacity: 0; /* Começa invisível */
-    transform: translateY(20px); /* Começa um pouco abaixo */
-    transition: all 0.5s ease 0.3s; /* Delay para esperar a imagem expandir */
-    pointer-events: none; /* Não interfere no clique */
+    opacity: 0; 
+    transform: translateY(20px); 
+    transition: all 0.5s ease 0.3s; 
+    pointer-events: none; 
 }
 
 .legenda h3 {
@@ -270,30 +255,25 @@ tr:hover {
     margin: 5px 0 0 0;
 }
 
-/* REVELAÇÃO: Quando o rádio dentro do label estiver marcado */
 label:has(input:checked) .legenda {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Garante que o conteúdo do label não vaze */
 label {
     position: relative;
     overflow: hidden;
 }
 
-/* ========================================================= */
-/* ESTILIZAÇÃO DO BLOG (CARDS DE NOTÍCIAS)                   */
-/* ========================================================= */
 #blog {
     display: flex;
     flex-direction: column;
-    gap: 40px; /* Espaço entre as notícias */
+    gap: 40px; 
 }
 
 #blog h2 {
     font-size: 1.6rem;
-    color: #00F5FF; /* Destaque Ciano */
+    color: #00F5FF; 
     border-left: 4px solid #7B61FF;
     padding-left: 15px;
     margin-bottom: 20px;
@@ -302,7 +282,7 @@ label {
 #blog img {
     width: 100%;
     max-height: 400px;
-    object-fit: cover; /* Corta a imagem sem distorcer para caber no padrão */
+    object-fit: cover; 
     border-radius: var(--radius-3);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
@@ -310,7 +290,7 @@ label {
 }
 
 #blog img:hover {
-    transform: scale(1.02); /* Leve zoom ao passar o mouse */
+    transform: scale(1.02); 
 }
 
 #blog p {
@@ -319,7 +299,6 @@ label {
     font-size: 1.1rem;
 }
 
-/* Estilização dos Links de "Confira em" */
 #blog a {
     display: inline-block;
     margin-top: 10px;
@@ -336,9 +315,6 @@ label {
     text-shadow: 0 0 8px rgba(0, 245, 255, 0.4);
 }
 
-/* ========================================================= */
-/* ESTILIZAÇÃO DO MINI-MENU (FILTROS DO BLOG)                */
-/* ========================================================= */
 #blog ul {
     display: flex;
     justify-content: center;
@@ -355,9 +331,9 @@ label {
 #blog ul li a {
     display: block;
     padding: 10px 20px;
-    background: rgba(123, 97, 255, 0.05); /* Roxo muito sutil */
+    background: rgba(123, 97, 255, 0.05); 
     border: 1px solid rgba(123, 97, 255, 0.2);
-    border-radius: var(--radius-pill); /* Formato de cápsula */
+    border-radius: var(--radius-pill); 
     color: #E0E6ED;
     text-decoration: none;
     font-size: 0.85rem;
@@ -367,16 +343,14 @@ label {
     transition: all 0.3s var(--ease-spring-3);
 }
 
-/* Efeito de destaque no hover */
 #blog ul li a:hover {
-    background: rgba(0, 245, 255, 0.1); /* Fundo Ciano */
+    background: rgba(0, 245, 255, 0.1); 
     border-color: #00F5FF;
     color: #00F5FF;
     box-shadow: 0 0 15px rgba(0, 245, 255, 0.3);
     transform: translateY(-3px);
 }
 
-/* Ajuste para o título do blog não ficar colado */
 #blog h1 {
     margin-bottom: 20px;
 }
